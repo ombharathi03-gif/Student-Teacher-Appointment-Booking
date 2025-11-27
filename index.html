@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Student-Teacher Booking - Login</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="container">
+    <h1>Student-Teacher Booking</h1>
+
+    <section class="card" id="auth-section">
+      <div id="auth-tabs">
+        <button id="tab-login" class="active">Login</button>
+        <button id="tab-register">Register</button>
+      </div>
+
+      <form id="login-form">
+        <input id="login-email" type="email" placeholder="Email" required />
+        <input id="login-password" type="password" placeholder="Password" required />
+        <select id="login-role">
+          <option value="student">Student</option>
+          <option value="teacher">Teacher</option>
+          <option value="admin">Admin</option>
+        </select>
+        <button type="submit">Login</button>
+        <p class="muted">Or register a new account</p>
+      </form>
+
+      <form id="register-form" style="display:none;">
+        <input id="reg-name" type="text" placeholder="Full Name" required />
+        <input id="reg-email" type="email" placeholder="Email" required />
+        <input id="reg-password" type="password" placeholder="Password" required />
+        <select id="reg-role">
+          <option value="student">Student</option>
+          <option value="teacher">Teacher</option>
+        </select>
+        <div id="teacher-extra" style="display:none;">
+          <input id="reg-dept" placeholder="Department" />
+          <input id="reg-subject" placeholder="Subjects (comma separated)" />
+        </div>
+        <button type="submit">Register</button>
+      </form>
+
+      <div id="auth-msg" class="muted"></div>
+    </section>
+
+    <footer class="muted">Built with HTML / CSS / JS / Firebase</footer>
+  </main>
+
+  <script type="module" src="firebase.js"></script>
+  <script type="module" src="app.js"></script>
+  <script>
+    // small tab logic
+    const tabLogin = document.getElementById('tab-login');
+    const tabRegister = document.getElementById('tab-register');
+    const loginForm = document.getElementById('login-form');
+    const registerForm = document.getElementById('register-form');
+    const teacherExtra = document.getElementById('teacher-extra');
+    const regRole = document.getElementById('reg-role');
+
+    tabLogin.onclick = () => { tabLogin.classList.add('active'); tabRegister.classList.remove('active'); loginForm.style.display='block'; registerForm.style.display='none'; }
+    tabRegister.onclick = () => { tabRegister.classList.add('active'); tabLogin.classList.remove('active'); loginForm.style.display='none'; registerForm.style.display='block'; }
+
+    regRole.addEventListener('change', ()=> {
+      teacherExtra.style.display = regRole.value === 'teacher' ? 'block' : 'none';
+    });
+
+    // Hook forms to functions defined in app.js (globals exported)
+    (async ()=> {
+      // wait until app.js loads and registers handlers
+      await new Promise(res=>setTimeout(res, 100));
+      window.hookAuthForms?.();
+    })();
+  </script>
+</body>
+</html>

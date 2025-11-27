@@ -1,0 +1,204 @@
+/* ===============================
+   GLOBAL RESET
+=============================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Segoe UI", Arial, sans-serif;
+  background: #f5f7fa;
+  color: #333;
+  padding: 20px;
+}
+
+/* ===============================
+   CONTAINER & CARDS
+=============================== */
+.container {
+  max-width: 900px;
+  margin: auto;
+}
+
+.card,
+.section {
+  background: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  margin-bottom: 25px;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.06);
+}
+
+h1, h2, h3 {
+  margin-bottom: 15px;
+  font-weight: 600;
+  color: #222;
+}
+
+/* ===============================
+   INPUTS & BUTTONS
+=============================== */
+input,
+select,
+textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  margin-top: 8px;
+  margin-bottom: 15px;
+  font-size: 15px;
+  background: #fff;
+}
+
+textarea {
+  resize: vertical;
+}
+
+button {
+  padding: 12px 18px;
+  background: #007bff;
+  border: none;
+  border-radius: 6px;
+  color: #fff;
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: 500;
+  transition: 0.2s;
+}
+
+button:hover {
+  background: #005ec4;
+}
+
+.small-btn {
+  padding: 6px 12px;
+  font-size: 14px;
+  margin-left: 8px;
+  background: #555;
+}
+
+.small-btn:hover {
+  background: #333;
+}
+
+/* ===============================
+   TEACHER CARDS & ITEMS
+=============================== */
+.teacher-card {
+  padding: 15px;
+  border-radius: 8px;
+  background: #fff;
+  border: 1px solid #e0e0e0;
+  margin-bottom: 12px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.04);
+}
+
+/* ===============================
+   TOP BAR / NAV
+=============================== */
+.topbar {
+  width: 100%;
+  padding: 15px 20px;
+  background: #007bff;
+  color: white;
+  font-size: 20px;
+  margin-bottom: 25px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.topbar button {
+  background: rgba(255,255,255,0.2);
+  border: 1px solid #fff;
+}
+
+.topbar button:hover {
+  background: rgba(255,255,255,0.35);
+}
+
+/* ===============================
+   LOGIN / REGISTER TABS
+=============================== */
+#auth-tabs {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+#auth-tabs button {
+  width: 48%;
+  padding: 10px;
+  border-radius: 6px;
+  background: #ddd;
+  color: #333;
+}
+
+#auth-tabs button.active {
+  background: #007bff;
+  color: white;
+}
+
+.muted {
+  color: #777;
+  font-size: 14px;
+  margin-top: 5px;
+}
+
+/* ===============================
+   RESPONSIVE (MOBILE OPTIMIZED)
+=============================== */
+
+@media (max-width: 768px) {
+  body {
+    padding: 15px;
+  }
+
+  .container {
+    width: 100%;
+    padding: 0;
+  }
+
+  .card,
+  .section {
+    padding: 15px;
+  }
+
+  button {
+    width: 100%;
+    margin-top: 10px;
+  }
+
+  #auth-tabs button {
+    font-size: 14px;
+  }
+
+  .topbar {
+    flex-direction: column;
+    gap: 10px;
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  input,
+  select,
+  textarea {
+    font-size: 14px;
+  }
+
+  h1 {
+    font-size: 20px;
+  }
+
+  h2 {
+    font-size: 18px;
+  }
+
+  button {
+    padding: 10px;
+  }
+}
